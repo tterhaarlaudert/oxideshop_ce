@@ -16,6 +16,7 @@ use OxidEsales\Eshop\Application\Model\Payment;
 use OxidEsales\Eshop\Application\Model\UserPayment;
 use OxidEsales\Eshop\Application\Model\User;
 use OxidEsales\Eshop\Core\UtilsObject;
+use OxidEsales\EshopCommunity\Core\Counter;
 use oxOrder;
 use \stdClass;
 use \oxDb;
@@ -3010,34 +3011,18 @@ class OrderTest extends \OxidTestCase
 
     public function testGetInvoiceNum()
     {
-        $this->_insertTestOrder();
+        oxNew(Counter::class)->update('oxOrder_oxinvoicenr', 5);
+        $order = oxNew('oxOrder');
 
-        $oOrder = oxNew('oxOrder');
-        $oOrder->load('_testOrderId');
-        $oOrder->oxorder__oxinvoicenr = new \OxidEsales\Eshop\Core\Field(5, \OxidEsales\Eshop\Core\Field::T_RAW);
-        $oOrder->save();
-
-        $iNum = $oOrder->getInvoiceNum();
-        $this->assertEquals(6, $iNum);
+        $this->assertEquals(6, $order->getInvoiceNum());
     }
 
     public function testGetNextBillNum()
     {
-        $this->_insertTestOrder('_testOrderId');
-        $this->_insertTestOrder('_testOrderId1');
+        oxNew(Counter::class)->update('oxOrder_oxbillnr', 1000);
+        $order = oxNew('oxOrder');
 
-        $oOrder = oxNew('oxOrder');
-        $oOrder->load('_testOrderId');
-        $oOrder->oxorder__oxbillnr = new \OxidEsales\Eshop\Core\Field(999, \OxidEsales\Eshop\Core\Field::T_RAW);
-        $oOrder->save();
-
-        $oOrder = oxNew('oxOrder');
-        $oOrder->load('_testOrderId1');
-        $oOrder->oxorder__oxbillnr = new \OxidEsales\Eshop\Core\Field(1000, \OxidEsales\Eshop\Core\Field::T_RAW);
-        $oOrder->save();
-
-        $iNum = $oOrder->getNextBillNum();
-        $this->assertEquals(1001, $iNum);
+        $this->assertEquals(1001, $order->getNextBillNum());
     }
 
     public function testVoucherNrList()
