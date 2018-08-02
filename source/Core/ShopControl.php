@@ -24,7 +24,6 @@ use ReflectionMethod;
  */
 class ShopControl extends \OxidEsales\Eshop\Core\Base
 {
-
     /**
      * Used to force handling, it allows other place like widget controller to skip it.
      *

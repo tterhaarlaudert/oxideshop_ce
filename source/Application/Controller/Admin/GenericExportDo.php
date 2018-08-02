@@ -15,7 +15,6 @@ use Symfony\Component\Templating\TemplateNameParser;
  */
 class GenericExportDo extends \OxidEsales\Eshop\Application\Controller\Admin\DynamicExportBaseController
 {
-
     /**
      * Export class name
      *
