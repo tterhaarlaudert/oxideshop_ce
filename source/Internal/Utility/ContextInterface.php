@@ -12,6 +12,16 @@ namespace OxidEsales\EshopCommunity\Internal\Utility;
 interface ContextInterface
 {
     /**
+     * @return int
+     */
+    public function getCurrentShopId();
+
+    /**
+     * @return string
+     */
+    public function getShopDir();
+
+    /**
      * @return string
      */
     public function getLogLevel();
@@ -27,14 +37,9 @@ interface ContextInterface
     public function getRequiredContactFormFields();
 
     /**
-     * @return int
-     */
-    public function getCurrentShopId();
-
-    /**
      * @return string
      */
-    public function getShopDir();
+    public function getConfigurationEncryptionKey(): string;
 
     /**
      * @return mixed
