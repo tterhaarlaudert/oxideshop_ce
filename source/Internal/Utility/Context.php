@@ -70,14 +70,6 @@ class Context implements ContextInterface
     }
 
     /**
-     * @return int
-     */
-    public function getCurrentShopId()
-    {
-        return $this->config->getShopId();
-    }
-
-    /**
      * @return string
      */
     public function getConfigurationEncryptionKey(): string
