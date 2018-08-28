@@ -32,9 +32,9 @@ class ContainerBuilder
     ];
 
     /**
-     * @return Container
+     * @return SymfonyContainerBuilder
      */
-    public function getContainer(): Container
+    public function getContainer(): SymfonyContainerBuilder
     {
         $symfonyContainer = new SymfonyContainerBuilder();
         $symfonyContainer->addCompilerPass(new RegisterListenersPass());
