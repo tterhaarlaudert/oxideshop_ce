@@ -109,6 +109,14 @@ class ContextStub implements ContextInterface
     /**
      * @return string
      */
+    public function getConfigurationEncryptionKey(): string
+    {
+        return '';
+    }
+
+    /**
+     * @return string
+     */
     public function getContainerCacheFile(): string
     {
         return $this->containerCacheFile;
