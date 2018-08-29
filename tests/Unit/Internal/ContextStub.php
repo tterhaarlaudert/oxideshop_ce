@@ -104,4 +104,11 @@ class ContextStub implements ContextInterface
         return $this->shopDir;
     }
 
+    /**
+     * @return string
+     */
+    public function getConfigurationEncryptionKey(): string
+    {
+        return '';
+    }
 }
