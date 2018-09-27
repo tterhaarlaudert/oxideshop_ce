@@ -31,4 +31,9 @@ interface ShopAdapterInterface
      * @param string $moduleId
      */
     public function invalidateModuleCache(string $moduleId);
+
+    /**
+     * @return string
+     */
+    public function generateUniqueId(): string;
 }
