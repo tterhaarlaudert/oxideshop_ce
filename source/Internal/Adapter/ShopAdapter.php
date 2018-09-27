@@ -58,4 +58,12 @@ class ShopAdapter implements ShopAdapterInterface
         $moduleCache = oxNew(ModuleCache::class, $module);
         $moduleCache->resetCache();
     }
+
+    /**
+     * @return string
+     */
+    public function generateUniqueId(): string
+    {
+        return Registry::getUtilsObject()->generateUId();
+    }
 }
