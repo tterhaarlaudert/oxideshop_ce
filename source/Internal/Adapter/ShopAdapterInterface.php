@@ -36,4 +36,9 @@ interface ShopAdapterInterface
      * @return string
      */
     public function generateUniqueId(): string;
+
+    /**
+     * @return array
+     */
+    public function getShopControllerClassMap(): array;
 }

@@ -12,6 +12,7 @@ use OxidEsales\Eshop\Core\MailValidator;
 use OxidEsales\Eshop\Core\Module\Module;
 use OxidEsales\Eshop\Core\Module\ModuleCache;
 use OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Core\Routing\ShopControllerMapProvider;
 use OxidEsales\EshopCommunity\Internal\Adapter\Exception\ModuleNotLoadableException;
 
 /**
@@ -65,5 +66,15 @@ class ShopAdapter implements ShopAdapterInterface
     public function generateUniqueId(): string
     {
         return Registry::getUtilsObject()->generateUId();
+    }
+
+    /**
+     * @return array
+     */
+    public function getShopControllerClassMap(): array
+    {
+        $shopControllerMapProvider = oxNew(ShopControllerMapProvider::class);
+
+        return $shopControllerMapProvider->getControllerMap();
     }
 }
