@@ -6,45 +6,17 @@
 
 namespace OxidEsales\EshopCommunity\Internal\Templating;
 
+use Symfony\Component\Templating\DelegatingEngine;
+
 /**
  * Class TemplateEngineBridge
  */
-class TemplateEngineBridge implements TemplateEngineBridgeInterface
+class TemplateEngineBridge extends DelegatingEngine implements TemplateEngineBridgeInterface
 {
     /**
      * @var BaseEngineInterface
      */
-    private $templateEngine;
-
-    /**
-     * TemplateEngineBridge constructor.
-     *
-     * @param BaseEngineInterface $templateEngine
-     */
-    public function __construct(BaseEngineInterface $templateEngine)
-    {
-        $this->templateEngine = $templateEngine;
-    }
-
-    /**
-     * Checks if file exists.
-     *
-     * @param string $name The template name
-     *
-     * @return bool
-     */
-    public function exists($name)
-    {
-        return $this->templateEngine->exists($name);
-    }
-
-    /**
-     * @return BaseEngineInterface
-     */
-    public function getEngine()
-    {
-        return $this->templateEngine;
-    }
+    private $fallBackEngine;
 
     /**
      * @param string $templateName The template name
@@ -53,11 +25,50 @@ class TemplateEngineBridge implements TemplateEngineBridgeInterface
      *
      * @return string
      */
-    public function renderTemplate($templateName, $viewData, $cacheId = null)
+    public function renderTemplate($templateName, $viewData, $cacheId = null) : string
     {
-        $templating = $this->templateEngine;
+        /** @var BaseEngineInterface $templating */
+        $templating = $this->getEngine($templateName);
         $templating->setCacheId($cacheId);
 
         return $templating->render($templateName, $viewData);
+    }
+
+    /**
+     * Set fallback engine, if not a template, but string will be given.
+     *
+     * @param BaseEngineInterface $engine
+     */
+    public function addFallBackEngine(BaseEngineInterface $engine)
+    {
+        $this->fallBackEngine = $engine;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getEngine($name = '')
+    {
+        if (empty($name)) {
+            return $this->getFallBackEngine();
+        }
+
+        return parent::getEngine($name);
+    }
+
+    /**
+     * Return fallback engine.
+     *
+     * @throws \RuntimeException if no engine was defined.
+     *
+     * @return BaseEngineInterface
+     */
+    private function getFallBackEngine() : BaseEngineInterface
+    {
+        if (isset($this->fallBackEngine)) {
+            return $this->fallBackEngine;
+        }
+
+        throw new \RuntimeException('No engine was defined.');
     }
 }

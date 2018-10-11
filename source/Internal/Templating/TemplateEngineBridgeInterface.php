@@ -12,18 +12,6 @@ namespace OxidEsales\EshopCommunity\Internal\Templating;
 interface TemplateEngineBridgeInterface
 {
     /**
-     * @param string $name The template name
-     *
-     * @return bool
-     */
-    public function exists($name);
-
-    /**
-     * @return BaseEngineInterface
-     */
-    public function getEngine();
-
-    /**
      * @param string $templateName The template name
      * @param array  $viewData     An array of parameters to pass to the template
      * @param string $cacheId      The id for template caching

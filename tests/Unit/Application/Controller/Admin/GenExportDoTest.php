@@ -41,7 +41,7 @@ class GenExportDoTest extends \OxidTestCase
             "encl" => $this->getConfigParam('sGiCsvFieldEncloser')
         ];
         $templateEngine = $this->getMockBuilder(TemplateEngineBridgeInterface::class)
-            ->setMethods(['renderTemplate', 'exists', 'getEngine'])
+            ->setMethods(['renderTemplate', 'exists', 'getEngineInstance', 'render', 'supports'])
             ->disableOriginalConstructor()
             ->getMock();
         $templateEngine->expects($this->any())->method('renderTemplate')->with(

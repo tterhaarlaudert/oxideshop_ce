@@ -1083,7 +1083,7 @@ class EmailTest extends \OxidTestCase
     public function testSendOrderEmailToOwnerCorrectSenderReceiver()
     {
         $templateEngine = $this->getMockBuilder(TemplateEngineBridgeInterface::class)
-            ->setMethods(['renderTemplate', 'exists', 'getEngine'])
+            ->setMethods(['renderTemplate', 'exists', 'getEngineInstance', 'render', 'supports'])
             ->disableOriginalConstructor()
             ->getMock();
         $templateEngine->expects($this->any())->method('renderTemplate')->will($this->returnValue(true));
@@ -1116,7 +1116,7 @@ class EmailTest extends \OxidTestCase
     public function testSendSuggestMailCorrectSender()
     {
         $templateEngine = $this->getMockBuilder(TemplateEngineBridgeInterface::class)
-            ->setMethods(['renderTemplate', 'exists', 'getEngine'])
+            ->setMethods(['renderTemplate', 'exists', 'getEngineInstance', 'render', 'supports'])
             ->disableOriginalConstructor()
             ->getMock();
         $templateEngine->expects($this->any())->method('renderTemplate')->will($this->returnValue(true));

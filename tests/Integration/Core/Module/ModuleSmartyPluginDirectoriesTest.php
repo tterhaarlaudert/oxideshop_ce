@@ -39,8 +39,8 @@ class ModuleSmartyPluginDirectoriesTest extends UnitTestCase
 
         $templating = $this->getContainer()->get(TemplateEngineBridgeInterface::class);
 
-        $this->assertModuleSmartyPluginDirectoriesFirst($templating->getEngine()->plugins_dir);
-        $this->assertShopSmartyPluginDirectorySecond($templating->getEngine()->plugins_dir);
+        $this->assertModuleSmartyPluginDirectoriesFirst($templating->getEngineInstance()->plugins_dir);
+        $this->assertShopSmartyPluginDirectorySecond($templating->getEngineInstance()->plugins_dir);
     }
 
     /**
@@ -77,7 +77,7 @@ class ModuleSmartyPluginDirectoriesTest extends UnitTestCase
 
     private function isPathInSmartyDirectories($smarty, $path)
     {
-        foreach ($smarty->getEngine()->plugins_dir as $directory) {
+        foreach ($smarty->getEngineInstance()->plugins_dir as $directory) {
             if (strpos($directory, $path)) {
                 return true;
             }

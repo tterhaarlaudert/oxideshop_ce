@@ -322,7 +322,7 @@ class UtilsViewTest extends \OxidTestCase
 
     public function testParseThroughSmartyInDiffLang()
     {
-        $templateEngine = $this->getContainer()->get(TemplateEngineBridgeInterface::class)->getEngine();
+        $templateEngine = $this->getContainer()->get(TemplateEngineBridgeInterface::class)->getEngineInstance();
         $templateEngine->compile_check = false;
         $lang = oxRegistry::getLang()->getTplLanguage();
 
