@@ -641,21 +641,29 @@ class ViewConfigTest extends \OxidTestCase
 
     public function testViewThemeParam()
     {
-        $oVC = oxNew('oxViewConfig');
+        $config = $this->getMockBuilder(\OxidEsales\Eshop\Core\Config::class)
+            ->setMethods(['getSession', 'isThemeOption', 'init'])
+            ->getMock();
+        $config->expects($this->any())->method('getSession')->willReturn(false);
+        $config->expects($this->any())->method('isThemeOption')->willReturn(true);
 
-        $oV = $this->getMock(\OxidEsales\Eshop\Core\Config::class, array('isThemeOption', 'getSession'));
-        $oV->expects($this->any())->method('getSession')->will($this->returnValue(false));
+        $viewConfig = oxNew('oxViewConfig');
+        $viewConfig->setConfig($config);
 
-        $this->assertEquals(false, $oVC->getViewThemeParam('aaa'));
+        $this->assertEquals(false, $viewConfig->getViewThemeParam('aaa'));
 
-        $oV = $this->getMock(\OxidEsales\Eshop\Core\Config::class, array('isThemeOption', 'getSession'));
-        $oV->expects($this->any())->method('getSession')->will($this->returnValue(true));
+        $config = $this->getMockBuilder(\OxidEsales\Eshop\Core\Config::class)
+            ->setMethods(['getSession', 'isThemeOption', 'init'])
+            ->getMock();
+        $config->expects($this->any())->method('getSession')->willReturn(true);
+        $config->expects($this->any())->method('isThemeOption')->willReturn(true);
+        $viewConfig->setConfig($config);
 
-        $this->getConfig()->setConfigParam('bl_showListmania', 1);
-        $this->assertEquals(1, $oVC->getViewThemeParam('bl_showListmania'));
+        $config->setConfigParam('bl_showListmania', 1);
+        $this->assertEquals(1, $viewConfig->getViewThemeParam('bl_showListmania'));
 
-        $this->getConfig()->setConfigParam('bl_showListmania', 0);
-        $this->assertEquals(0, $oVC->getViewThemeParam('bl_showListmania'));
+        $config->setConfigParam('bl_showListmania', 0);
+        $this->assertEquals(0, $viewConfig->getViewThemeParam('bl_showListmania'));
     }
 
     /**
