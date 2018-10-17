@@ -387,6 +387,8 @@ class VendorTest extends \OxidTestCase
      */
     public function testGetIconUrlNewPath()
     {
+        $this->activateTheme('flow');
+     
         /** @var Vendor $vendor */
         $vendor = oxNew('oxvendor');
         $vendor->oxvendor__oxicon = new oxField('big_matsol_1_mico.png');
