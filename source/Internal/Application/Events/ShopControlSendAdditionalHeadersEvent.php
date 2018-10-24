@@ -25,9 +25,9 @@ class ShopControlSendAdditionalHeadersEvent extends Event
     protected $result = false;
 
     /**
-     * @var \OxidEsales\Eshop\Application\Controller\FrontendController
+     * @var \OxidEsales\Eshop\Core\Controller\BaseController
      */
-    protected $frontendController = null;
+    protected $controller = null;
 
     /**
      * @var \OxidEsales\Eshop\Core\ShopControl
@@ -64,13 +64,13 @@ class ShopControlSendAdditionalHeadersEvent extends Event
     }
 
     /**
-     * Setter for FrontendController object.
+     * Setter for controller object.
      *
-     * @param \OxidEsales\Eshop\Application\Controller\FrontendController FrontendController object
+     * @param \OxidEsales\Eshop\Core\Controller\BaseController controller object
      */
-    public function setFrontendController(\OxidEsales\Eshop\Application\Controller\FrontendController $FrontendController)
+    public function setController(\OxidEsales\Eshop\Core\Controller\BaseController $controller)
     {
-        $this->frontendController = $FrontendController;
+        $this->controller = $controller;
     }
 
     /**
@@ -94,12 +94,12 @@ class ShopControlSendAdditionalHeadersEvent extends Event
     }
 
     /**
-     * Getter for FrontendController object.
+     * Getter for controller object.
      *
-     * @return \OxidEsales\Eshop\Application\Controller\FrontendController
+     * @return \OxidEsales\Eshop\Core\Controller\BaseController
      */
-    public function getFrontendController()
+    public function getController()
     {
-        return $this->frontendController;
+        return $this->controller;
     }
 }
