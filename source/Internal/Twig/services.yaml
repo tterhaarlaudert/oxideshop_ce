@@ -30,6 +30,7 @@ services:
       - '@twig.loader'
       - "@=service('OxidEsales\\\\EshopCommunity\\\\Internal\\\\Twig\\\\TemplateEngineConfigurationInterface').getParameters()"
     public: false
+      - [addExtension, ['@OxidEsales\EshopCommunity\Internal\Twig\Extensions\InputhelpExtension']]
 
   OxidEsales\EshopCommunity\Internal\Twig\TwigEngine:
     class: OxidEsales\EshopCommunity\Internal\Twig\TwigEngine
@@ -95,6 +96,12 @@ services:
 
   OxidEsales\EshopCommunity\Internal\Twig\Extensions\InputHelpExtension:
     class: OxidEsales\EshopCommunity\Internal\Twig\Extensions\InputHelpExtension
+    tags: ['twig.extension']
+
+  OxidEsales\EshopCommunity\Internal\Twig\Extensions\InputhelpExtension:
+    class: OxidEsales\EshopCommunity\Internal\Twig\Extensions\OxidExtension
+    arguments:
+      - '@OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\InputhelpLogic'
     tags: ['twig.extension']
 
   OxidEsales\EshopCommunity\Internal\Twig\Extensions\HasRightsExtension\HasRightsParser:
