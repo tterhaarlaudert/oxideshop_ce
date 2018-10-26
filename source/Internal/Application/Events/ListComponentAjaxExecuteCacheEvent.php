@@ -8,16 +8,14 @@ declare(strict_types=1);
 
 namespace OxidEsales\EshopCommunity\Internal\Application\Events;
 
-use Symfony\Component\EventDispatcher\Event;
-
 /**
- * Class ListControllerAjaxExecuteCacheEvent
+ * Class ListComponentAjaxExecuteCacheEvent
  *
  * @package OxidEsales\EshopCommunity\Internal\Application\Events
  */
-class ListControllerAjaxExecuteCacheEvent extends ExecuteCacheEvent
+class ListComponentAjaxExecuteCacheEvent extends ExecuteCacheEvent
 {
-    const NAME = 'oxidesales.basecontroller.executeCache';
+    const NAME = 'oxidesales.listcomponentajax.executeCache';
 
     /**
      * Handle event.
@@ -26,6 +24,5 @@ class ListControllerAjaxExecuteCacheEvent extends ExecuteCacheEvent
      */
     public function handleEvent()
     {
-
     }
 }
