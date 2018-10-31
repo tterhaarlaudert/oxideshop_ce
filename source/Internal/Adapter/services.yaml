@@ -8,8 +8,8 @@ services:
     class: OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\ContentFactory
 
 # TemplateLogic
-  OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\InputhelpLogic:
-    class: OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\InputhelpLogic
+  OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\InputHelpLogic:
+    class: OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\InputHelpLogic
 
   OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\SeoUrlLogic:
     class: OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\SeoUrlLogic

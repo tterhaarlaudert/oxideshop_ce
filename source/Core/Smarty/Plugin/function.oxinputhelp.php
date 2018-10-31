@@ -4,7 +4,7 @@
  * See LICENSE file for license details.
  */
 
-use OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\InputhelpLogic;
+use OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\InputHelpLogic;
 use OxidEsales\EshopCommunity\Internal\Application\ContainerFactory;
 
 /**
@@ -22,9 +22,9 @@ use OxidEsales\EshopCommunity\Internal\Application\ContainerFactory;
 function smarty_function_oxinputhelp($params, &$smarty)
 {
     $container = ContainerFactory::getInstance()->getContainer();
-    /** @var InputhelpLogic $oxinputhelpLogic */
-    $oxinputhelpLogic = $container->get(InputhelpLogic::class);
-    $oxinputhelpParameters = $oxinputhelpLogic->getInputhelpParameters($params);
+    /** @var InputHelpLogic $oxinputhelpLogic */
+    $oxinputhelpLogic = $container->get(InputHelpLogic::class);
+    $oxinputhelpParameters = $oxinputhelpLogic->getInputHelpParameters($params);
 
     $sTranslation = $oxinputhelpParameters['sTranslation'];
     $sIdent = $oxinputhelpParameters['sIdent'];

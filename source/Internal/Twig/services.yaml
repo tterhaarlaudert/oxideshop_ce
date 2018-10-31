@@ -100,4 +100,4 @@ services:
   OxidEsales\EshopCommunity\Internal\Twig\Extensions\InputhelpExtension:
     class: OxidEsales\EshopCommunity\Internal\Twig\Extensions\OxidExtension
     arguments:
-      - '@OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\InputhelpLogic'
+      - '@OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\InputHelpLogic'
