@@ -6,7 +6,7 @@
 
 namespace OxidEsales\EshopCommunity\Tests\Unit\Internal\Twig\Extension;
 
-use OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\InputhelpLogic;
+use OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\InputHelpLogic;
 use OxidEsales\EshopCommunity\Internal\Twig\Extensions\InputhelpExtension;
 
 class GetSHelpIDTest extends \OxidTestCase
@@ -20,7 +20,7 @@ class GetSHelpIDTest extends \OxidTestCase
     protected function setUp()
     {
         parent::setUp();
-        $oxinputhelpLogic = new InputhelpLogic();
+        $oxinputhelpLogic = new InputHelpLogic();
         $this->extension = new InputhelpExtension($oxinputhelpLogic);
     }
 

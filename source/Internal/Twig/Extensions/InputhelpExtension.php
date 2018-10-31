@@ -6,7 +6,7 @@
 
 namespace OxidEsales\EshopCommunity\Internal\Twig\Extensions;
 
-use OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\InputhelpLogic;
+use OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\InputHelpLogic;
 use OxidEsales\EshopCommunity\Internal\Twig\TwigEngine;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
@@ -18,18 +18,18 @@ class InputhelpExtension extends AbstractExtension
 {
 
     /**
-     * @var InputhelpLogic
+     * @var InputHelpLogic
      */
-    private $inputhelpLogic;
+    private $inputHelpLogic;
 
     /**
      * InputhelpExtension constructor.
      *
-     * @param InputhelpLogic $inputhelpLogic
+     * @param InputHelpLogic $inputHelpLogic
      */
-    public function __construct(InputhelpLogic $inputhelpLogic)
+    public function __construct(InputHelpLogic $inputHelpLogic)
     {
-        $this->inputhelpLogic = $inputhelpLogic;
+        $this->inputhelpLogic = $inputHelpLogic;
     }
 
     /**
@@ -50,7 +50,7 @@ class InputhelpExtension extends AbstractExtension
      */
     public function getSHelpId($sIdent)
     {
-        $getInputhelpParameters = $this->inputhelpLogic->getInputhelpParameters(['ident' => $sIdent]);
+        $getInputhelpParameters = $this->inputhelpLogic->getInputHelpParameters(['ident' => $sIdent]);
 
         return $getInputhelpParameters['sIdent'];
     }
@@ -62,7 +62,7 @@ class InputhelpExtension extends AbstractExtension
      */
     public function getSHelpText($sIdent)
     {
-        $getInputhelpParameters = $this->inputhelpLogic->getInputhelpParameters(['ident' => $sIdent]);
+        $getInputhelpParameters = $this->inputhelpLogic->getInputHelpParameters(['ident' => $sIdent]);
 
         return $getInputhelpParameters['sTranslation'];
     }

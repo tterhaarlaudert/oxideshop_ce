@@ -6,7 +6,7 @@
 
 namespace OxidEsales\EshopCommunity\Tests\Unit\Internal\Adapter;
 
-use OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\InputhelpLogic;
+use OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\InputHelpLogic;
 
 class InputhelpLogicTest extends \OxidTestCase
 {
@@ -35,8 +35,8 @@ class InputhelpLogicTest extends \OxidTestCase
     {
         $this->setLanguage($iLang);
         $this->setAdminMode($blAdmin);
-        $inputhelpLogic = new InputhelpLogic();
-        $this->assertEquals($expected, $inputhelpLogic->getInputhelpParameters(['ident' => $sIndent]));
+        $inputHelpLogic = new InputHelpLogic();
+        $this->assertEquals($expected, $inputHelpLogic->getInputHelpParameters(['ident' => $sIndent]));
     }
 
 }
