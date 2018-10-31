@@ -29,7 +29,7 @@ class InputhelpExtension extends AbstractExtension
      */
     public function __construct(InputHelpLogic $inputHelpLogic)
     {
-        $this->inputhelpLogic = $inputHelpLogic;
+        $this->inputHelpLogic = $inputHelpLogic;
     }
 
     /**
@@ -50,7 +50,7 @@ class InputhelpExtension extends AbstractExtension
      */
     public function getSHelpId($sIdent)
     {
-        $getInputhelpParameters = $this->inputhelpLogic->getInputHelpParameters(['ident' => $sIdent]);
+        $getInputhelpParameters = $this->inputHelpLogic->getInputHelpParameters(['ident' => $sIdent]);
 
         return $getInputhelpParameters['sIdent'];
     }
@@ -62,8 +62,8 @@ class InputhelpExtension extends AbstractExtension
      */
     public function getSHelpText($sIdent)
     {
-        $getInputhelpParameters = $this->inputhelpLogic->getInputHelpParameters(['ident' => $sIdent]);
+        $getInputHelpParameters = $this->inputHelpLogic->getInputHelpParameters(['ident' => $sIdent]);
 
-        return $getInputhelpParameters['sTranslation'];
+        return $getInputHelpParameters['sTranslation'];
     }
 }
