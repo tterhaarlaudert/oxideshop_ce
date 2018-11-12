@@ -1095,11 +1095,18 @@ class Utils extends \OxidEsales\Eshop\Core\Base
 
     /**
      * helper with commands to run before exit action
+     *
+     * @return \OxidEsales\EshopCommunity\Internal\ShopEvents\UtilsPrepareToExitEvent
      */
     protected function prepareToExit()
     {
         $this->getSession()->freeze();
         $this->commitFileCache();
+
+        $container = \OxidEsales\EshopCommunity\Internal\Application\ContainerFactory::getInstance()->getContainer();
+        $dispatcher = $container->get('event_dispatcher');
+        $event = new \OxidEsales\EshopCommunity\Internal\ShopEvents\UtilsPrepareToExitEvent();
+        return $dispatcher->dispatch($event::NAME, $event);
     }
 
     /**
