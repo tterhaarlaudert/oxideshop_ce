@@ -39,11 +39,13 @@ class ContainerFactory
     }
 
     /**
+     * @param bool $forceReload Need to be able to force reload for tests.
+     *
      * @return ContainerInterface
      */
-    public function getContainer()
+    public function getContainer($forceReload = false)
     {
-        if ($this->symfonyContainer === null) {
+        if (($this->symfonyContainer === null) || $forceReload) {
             $this->initializeContainer();
         }
 
