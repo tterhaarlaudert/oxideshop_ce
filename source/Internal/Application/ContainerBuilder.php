@@ -14,6 +14,8 @@ use OxidEsales\EshopCommunity\Internal\ProjectDIConfig\Dao\ProjectYamlDaoInterfa
 use OxidEsales\EshopCommunity\Internal\ProjectDIConfig\Service\ProjectYamlImportService;
 use OxidEsales\EshopCommunity\Internal\Utility\Context;
 use OxidEsales\Facts\Facts;
+use OxidEsales\EshopCommunity\Internal\Twig\DependencyInjection\Compiler\TwigEnvironmentPass;
+use OxidEsales\EshopCommunity\Internal\Twig\DependencyInjection\Compiler\TwigLoaderPass;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\Container;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
@@ -52,7 +54,10 @@ class ContainerBuilder
     public function getContainer(): Container
     {
         $symfonyContainer = new SymfonyContainerBuilder();
-        $symfonyContainer->addCompilerPass(new RegisterListenersPass());
+        $symfonyContainer
+            ->addCompilerPass(new RegisterListenersPass())
+            ->addCompilerPass(new TwigEnvironmentPass())
+            ->addCompilerPass(new TwigLoaderPass());
         $this->loadServiceFiles($symfonyContainer);
         if ($this->facts->isProfessional()) {
             $this->loadEditionServices($symfonyContainer, $this->facts->getProfessionalEditionRootPath());
