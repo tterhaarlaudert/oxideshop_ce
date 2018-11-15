@@ -13,34 +13,21 @@ class InputHelpLogic
     /**
      * @param array $params
      *
-     * @return array
-     */
-    public function getInputHelpParameters($params)
-    {
-        $sIdent = $this->getIdent($params);
-        $sTranslation = $this->getTranslation($sIdent);
-        $helpInputParameters = $this->formatHelpInputParameters($sIdent, $sTranslation);
-
-        return $helpInputParameters;
-    }
-
-    /**
-     * @param array $params
-     *
      * @return null
      */
-    private function getIdent($params)
+    public function getIdent($params)
     {
         return isset($params['ident']) ? $params['ident'] : null;
     }
 
     /**
-     * @param string $sIdent
+     * @param array $params
      *
      * @return mixed
      */
-    private function getTranslation($sIdent)
+    public function getTranslation($params)
     {
+        $sIdent = $this->getIdent($params);
         $sTranslation = null;
         $oLang = \OxidEsales\Eshop\Core\Registry::getLang();
         $iLang = $oLang->getTplLanguage();
@@ -54,15 +41,5 @@ class InputHelpLogic
 
         return $sTranslation;
     }
-
-    /**
-     * @param string $sIdent
-     * @param string $sTranslation
-     *
-     * @return array
-     */
-    private function formatHelpInputParameters($sIdent, $sTranslation)
-    {
-        return ['sIdent' => $sIdent, 'sTranslation' => $sTranslation];
-    }
+    
 }

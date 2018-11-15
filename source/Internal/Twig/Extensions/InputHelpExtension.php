@@ -14,7 +14,7 @@ use Twig\TwigFunction;
 /**
  * Class OxidExtension
  */
-class InputhelpExtension extends AbstractExtension
+class InputHelpExtension extends AbstractExtension
 {
 
     /**
@@ -44,26 +44,22 @@ class InputhelpExtension extends AbstractExtension
     }
 
     /**
-     * @param string $sIdent
+     * @param array $params
      *
      * @return mixed
      */
-    public function getSHelpId($sIdent)
+    public function getSHelpId($params)
     {
-        $getInputhelpParameters = $this->inputHelpLogic->getInputHelpParameters(['ident' => $sIdent]);
-
-        return $getInputhelpParameters['sIdent'];
+        return $this->inputHelpLogic->getIdent($params);
     }
 
     /**
-     * @param string $sIdent
+     * @param string $params
      *
      * @return mixed
      */
-    public function getSHelpText($sIdent)
+    public function getSHelpText($params)
     {
-        $getInputHelpParameters = $this->inputHelpLogic->getInputHelpParameters(['ident' => $sIdent]);
-
-        return $getInputHelpParameters['sTranslation'];
+        return $this->inputHelpLogic->getTranslation($params);
     }
 }

@@ -23,11 +23,10 @@ function smarty_function_oxinputhelp($params, &$smarty)
 {
     $container = ContainerFactory::getInstance()->getContainer();
     /** @var InputHelpLogic $oxinputhelpLogic */
-    $oxinputhelpLogic = $container->get(InputHelpLogic::class);
-    $oxinputhelpParameters = $oxinputhelpLogic->getInputHelpParameters($params);
+    $inputHelpLogic = $container->get(InputHelpLogic::class);
 
-    $sTranslation = $oxinputhelpParameters['sTranslation'];
-    $sIdent = $oxinputhelpParameters['sIdent'];
+    $sTranslation = $inputHelpLogic->getTranslation($params);
+    $sIdent = $inputHelpLogic->getIdent($params);
 
     if (!$sTranslation || $sTranslation == $sIdent) {
         //no translation, return empty string
