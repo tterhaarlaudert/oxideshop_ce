@@ -41,5 +41,4 @@ class InputHelpLogic
 
         return $sTranslation;
     }
-    
 }
