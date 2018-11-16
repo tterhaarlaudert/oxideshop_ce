@@ -41,7 +41,7 @@ services:
       - [addExtension, ['@OxidEsales\EshopCommunity\Internal\Twig\Extensions\HasRightsExtension\HasRightsExtension']]
       - [addTokenParser, ['@OxidEsales\EshopCommunity\Internal\Twig\Extensions\HasRightsExtension\HasRightsParser']]
       - [addExtension, ['@OxidEsales\EshopCommunity\Internal\Twig\Extensions\IfContentExtension']]
-      - [addExtension, ['@OxidEsales\EshopCommunity\Internal\Twig\Filters\TranslateColonFilter']]
+      - [addExtension, ['@OxidEsales\EshopCommunity\Internal\Twig\Extensions\Filters\TranslateColonExtension']]
 
   OxidEsales\EshopCommunity\Internal\Twig\TwigEngine:
     class: OxidEsales\EshopCommunity\Internal\Twig\TwigEngine
@@ -117,5 +117,5 @@ services:
     arguments:
       - '@OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\IfContentLogic'
 
-  OxidEsales\EshopCommunity\Internal\Twig\Filters\TranslateColonFilter:
-    class: OxidEsales\EshopCommunity\Internal\Twig\Filters\TranslateColonFilter
+  OxidEsales\EshopCommunity\Internal\Twig\Extensions\Filters\TranslateColonExtension:
+    class: OxidEsales\EshopCommunity\Internal\Twig\Extensions\Filters\TranslateColonExtension
