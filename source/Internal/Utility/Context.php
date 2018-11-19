@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Copyright © OXID eSales AG. All rights reserved.
  * See LICENSE file for license details.
@@ -36,6 +36,14 @@ class Context implements ContextInterface
     /**
      * @return string
      */
+    public function getEnvironment(): string
+    {
+        return 'prod';
+    }
+
+    /**
+     * @return string
+     */
     public function getLogLevel()
     {
         return $this->getConfigParameter('sLogLevel');
@@ -44,7 +52,7 @@ class Context implements ContextInterface
     /**
      * @return string
      */
-    public function getLogFilePath()
+    public function getLogFilePath(): string
     {
         return $this->config->getLogsDir() . 'oxideshop.log';
     }
@@ -52,7 +60,7 @@ class Context implements ContextInterface
     /**
      * @return array
      */
-    public function getRequiredContactFormFields()
+    public function getRequiredContactFormFields(): array
     {
         $contactFormRequiredFields = $this->getConfigParameter('contactFormRequiredFields');
 
@@ -62,7 +70,7 @@ class Context implements ContextInterface
     /**
      * @return int
      */
-    public function getCurrentShopId()
+    public function getCurrentShopId(): int
     {
         return $this->config->getShopId();
     }
@@ -70,7 +78,7 @@ class Context implements ContextInterface
     /**
      * @return string
      */
-    public function getShopDir()
+    public function getShopDir(): string
     {
         return $this->getFacts()->getSourcePath();
     }

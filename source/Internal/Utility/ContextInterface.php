@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Copyright © OXID eSales AG. All rights reserved.
  * See LICENSE file for license details.
@@ -12,14 +12,19 @@ namespace OxidEsales\EshopCommunity\Internal\Utility;
 interface ContextInterface
 {
     /**
+     * @return string
+     */
+    public function getEnvironment(): string;
+
+    /**
      * @return int
      */
-    public function getCurrentShopId();
+    public function getCurrentShopId(): int;
 
     /**
      * @return string
      */
-    public function getShopDir();
+    public function getShopDir(): string;
 
     /**
      * @return string
@@ -29,12 +34,12 @@ interface ContextInterface
     /**
      * @return string
      */
-    public function getLogFilePath();
+    public function getLogFilePath(): string;
 
     /**
      * @return array
      */
-    public function getRequiredContactFormFields();
+    public function getRequiredContactFormFields(): array;
 
     /**
      * @return string
