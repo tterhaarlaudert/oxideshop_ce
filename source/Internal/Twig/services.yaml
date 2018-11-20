@@ -39,8 +39,8 @@ services:
       - [addExtension, ['@OxidEsales\EshopCommunity\Internal\Twig\Extensions\AssignAdvancedExtension']]
       - [addExtension, ['@OxidEsales\EshopCommunity\Internal\Twig\Extensions\InputhelpExtension']]
         - [addTokenParser, ['@OxidEsales\EshopCommunity\Internal\Twig\Extensions\HasRightsExtension\HasRightsParser']]
-        - [addTokenParser, ['@OxidEsales\EshopCommunity\Internal\Twig\Extensions\HasRightsExtension\HasRightsParser']]
-        - [addExtension, ['@OxidEsales\EshopCommunity\Internal\Twig\Extensions\IfContentExtension']]
+      - [addTokenParser, ['@OxidEsales\EshopCommunity\Internal\Twig\Extensions\HasRightsExtension\HasRightsParser']]
+      - [addExtension, ['@OxidEsales\EshopCommunity\Internal\Twig\Extensions\IfContentExtension']]
 
   OxidEsales\EshopCommunity\Internal\Twig\TwigEngine:
     class: OxidEsales\EshopCommunity\Internal\Twig\TwigEngine
