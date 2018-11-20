@@ -14,8 +14,6 @@ use OxidEsales\EshopCommunity\Internal\ProjectDIConfig\Dao\ProjectYamlDaoInterfa
 use OxidEsales\EshopCommunity\Internal\ProjectDIConfig\Service\ProjectYamlImportService;
 use OxidEsales\EshopCommunity\Internal\Utility\Context;
 use OxidEsales\Facts\Facts;
-use OxidEsales\EshopCommunity\Internal\Twig\DependencyInjection\Compiler\TwigEnvironmentPass;
-use OxidEsales\EshopCommunity\Internal\Twig\DependencyInjection\Compiler\TwigLoaderPass;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\Container;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
@@ -54,10 +52,16 @@ class ContainerBuilder
     public function getContainer(): Container
     {
         $symfonyContainer = new SymfonyContainerBuilder();
-        $symfonyContainer
-            ->addCompilerPass(new RegisterListenersPass())
-            ->addCompilerPass(new TwigEnvironmentPass())
-            ->addCompilerPass(new TwigLoaderPass());
+        $symfonyContainer->addCompilerPass(new RegisterListenersPass());
+
+        try {
+            $symfonyContainer
+                ->addCompilerPass(new \OxidEsales\EshopCommunity\Internal\Twig\DependencyInjection\Compiler\TwigEnvironmentPass())
+                ->addCompilerPass(new \OxidEsales\EshopCommunity\Internal\Twig\DependencyInjection\Compiler\TwigLoaderPass());
+        } catch (\Exception $exception) {
+            // Skip loading Twig compilers if there are any problems
+        }
+
         $this->loadServiceFiles($symfonyContainer);
         if ($this->facts->isProfessional()) {
             $this->loadEditionServices($symfonyContainer, $this->facts->getProfessionalEditionRootPath());
