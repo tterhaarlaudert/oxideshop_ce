@@ -23,3 +23,6 @@ services:
 
   OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\IfContentLogic:
     class: OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\IfContentLogic
+
+  OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\IncludeWidgetLogic:
+    class: OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\IncludeWidgetLogic
