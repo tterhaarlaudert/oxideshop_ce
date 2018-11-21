@@ -96,17 +96,13 @@ services:
 
   OxidEsales\EshopCommunity\Internal\Twig\Extensions\InputHelpExtension:
     class: OxidEsales\EshopCommunity\Internal\Twig\Extensions\InputHelpExtension
-    tags: ['twig.extension']
-
-  OxidEsales\EshopCommunity\Internal\Twig\Extensions\InputHelpExtension:
-    class: OxidEsales\EshopCommunity\Internal\Twig\Extensions\InputHelpExtension
     arguments:
       - '@OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\InputHelpLogic'
     tags: ['twig.extension']
 
   OxidEsales\EshopCommunity\Internal\Twig\Extensions\HasRightsExtension\HasRightsParser:
     class: OxidEsales\EshopCommunity\Internal\Twig\Extensions\HasRightsExtension\HasRightsParser
-    tags: ['twig.extension']
+    tags: ['twig.parser']
 
   OxidEsales\EshopCommunity\Internal\Twig\Extensions\HasRightsExtension\HasRightsExtension:
     class: OxidEsales\EshopCommunity\Internal\Twig\Extensions\HasRightsExtension\HasRightsExtension
