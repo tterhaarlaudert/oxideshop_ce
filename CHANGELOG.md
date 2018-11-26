@@ -20,6 +20,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Log missing translations [PR-520](https://github.com/OXID-eSales/oxideshop_ce/pull/520)
 - Introduce new feature - reset category filter [0002046](https://bugs.oxid-esales.com/view.php?id=2046)
 
+- Module configuration:
+    - option `activeModules` in table oxconfig in order to determine the currently active modules
+
 ### Changed
 - category_main form layout improvements [PR-585](https://github.com/OXID-eSales/oxideshop_ce/pull/585)
 - Split config parameter initialization from application initialization [PR-628](https://github.com/OXID-eSales/oxideshop_ce/pull/628)
