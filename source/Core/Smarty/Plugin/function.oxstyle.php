@@ -4,7 +4,7 @@
  * See LICENSE file for license details.
  */
 
-use OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\CollectStyleSheetsLogic;
+use OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\StyleLogic;
 use OxidEsales\EshopCommunity\Internal\Application\ContainerFactory;
 
 /**
@@ -31,9 +31,9 @@ use OxidEsales\EshopCommunity\Internal\Application\ContainerFactory;
 function smarty_function_oxstyle($params, &$smarty)
 {
     $isDynamic = isset($smarty->_tpl_vars["__oxid_include_dynamic"]) ? (bool) $smarty->_tpl_vars["__oxid_include_dynamic"] : false;
-    /**@var CollectStyleSheetsLogic $collectStyleSheetsLogic */
-    $collectStyleSheetsLogic = ContainerFactory::getInstance()->getContainer()->get(CollectStyleSheetsLogic::class);
-    $output = $collectStyleSheetsLogic->collectStyleSheets($params, $isDynamic);
+    /**@var StyleLogic $styleLogic */
+    $styleLogic = ContainerFactory::getInstance()->getContainer()->get(StyleLogic::class);
+    $output = $styleLogic->collectStyleSheets($params, $isDynamic);
 
     return $output;
 }

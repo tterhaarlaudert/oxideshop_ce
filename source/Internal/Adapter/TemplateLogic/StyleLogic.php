@@ -11,7 +11,7 @@ namespace OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic;
  *
  * @author Jędrzej Skoczek (j.skoczek@createit.pl)
  */
-class CollectStyleSheetsLogic
+class StyleLogic
 {
 
     /**

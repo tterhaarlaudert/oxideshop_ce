@@ -18,5 +18,5 @@ services:
   OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\AssignAdvancedLogic:
     class: OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\AssignAdvancedLogic
 
-  OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\CollectStyleSheetsLogic:
-    class: OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\CollectStyleSheetsLogic
+  OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\StyleLogic:
+    class: OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\StyleLogic

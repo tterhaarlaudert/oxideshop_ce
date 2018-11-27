@@ -39,7 +39,7 @@ services:
         - [addExtension, ['@OxidEsales\EshopCommunity\Internal\Twig\Extensions\AssignAdvancedExtension']]
         - [addExtension, ['@Twig_Extension_StringLoader']]
         - [addExtension, ['@OxidEsales\EshopCommunity\Internal\Twig\Extensions\HasRightsExtension\HasRightsExtension']]
-        - [addExtension, ['@OxidEsales\EshopCommunity\Internal\Twig\Extensions\CollectStyleSheetsExtension']]
+        - [addExtension, ['@OxidEsales\EshopCommunity\Internal\Twig\Extensions\StyleExtension']]
         - [addTokenParser, ['@OxidEsales\EshopCommunity\Internal\Twig\Extensions\HasRightsExtension\HasRightsParser']]
 
   OxidEsales\EshopCommunity\Internal\Twig\TwigEngine:
@@ -103,10 +103,10 @@ services:
   Twig_Extension_StringLoader:
     class: Twig_Extension_StringLoader
 
-  OxidEsales\EshopCommunity\Internal\Twig\Extensions\CollectStyleSheetsExtension:
-    class: OxidEsales\EshopCommunity\Internal\Twig\Extensions\CollectStyleSheetsExtension
+  OxidEsales\EshopCommunity\Internal\Twig\Extensions\StyleExtension:
+    class: OxidEsales\EshopCommunity\Internal\Twig\Extensions\StyleExtension
     arguments:
-      - '@OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\CollectStyleSheetsLogic'
+      - '@OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\StyleLogic'
       - '@twig.environment'
 
   OxidEsales\EshopCommunity\Internal\Twig\Extensions\HasRightsExtension\HasRightsParser:
