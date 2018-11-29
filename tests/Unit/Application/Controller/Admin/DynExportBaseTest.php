@@ -7,9 +7,7 @@ namespace OxidEsales\EshopCommunity\Tests\Unit\Application\Controller\Admin;
 
 use DynExportBase;
 use Exception;
-use OxidEsales\EshopCommunity\Application\Model\Article;
 use oxDb;
-use OxidEsales\EshopCommunity\Core\DatabaseProvider;
 use OxidEsales\TestingLibrary\VfsStreamWrapper;
 use oxRegistry;
 use oxTestModules;
