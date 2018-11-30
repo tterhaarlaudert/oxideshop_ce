@@ -41,3 +41,6 @@ services:
 
   OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\FileSizeLogic:
     class: OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\FileSizeLogic
+
+  OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\SmartWordWrapLogic:
+    class: OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\SmartWordWrapLogic
