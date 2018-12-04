@@ -26,9 +26,9 @@ class IncludeWidgetExtensionTest extends TestCase
      */
     public function testIncludeWidget()
     {
-        $oShopControl = $this->createMock(\OxidEsales\Eshop\Core\WidgetControl::class);
-        $oShopControl->expects($this->any())->method("start")->will($this->returnValue('html'));
-        \oxTestModules::addModuleObject('oxWidgetControl', $oShopControl);
+        $widgetControl = $this->createMock(\OxidEsales\Eshop\Core\WidgetControl::class);
+        $widgetControl->expects($this->any())->method("start")->will($this->returnValue('html'));
+        \OxidEsales\Eshop\Core\Registry::set(\OxidEsales\Eshop\Core\WidgetControl::class, $widgetControl);
 
         $actual = $this->includeWidgetExtension->includeWidget(['cl' => 'oxwTagCloud', 'blShowTags' => 1]);
         $this->assertEquals('html', $actual);
