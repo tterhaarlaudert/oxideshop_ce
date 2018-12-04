@@ -15,6 +15,16 @@ namespace OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic;
 class SmartWordWrapLogic
 {
 
+    /**
+     * @param string $string
+     * @param int    $length
+     * @param string $break
+     * @param int    $cutRows
+     * @param int    $tolerance
+     * @param string $etc
+     *
+     * @return string
+     */
     public function wrapWords($string, $length, $break, $cutRows, $tolerance, $etc)
     {
 
@@ -25,7 +35,9 @@ class SmartWordWrapLogic
 
         $string = trim($string);
 
-        if (strlen($string) <= $length) return $string;
+        if (strlen($string) <= $length) {
+            return $string;
+        }
 
         //trying to wrap without cut
         $str = wordwrap($string, $length, $wrapTag, false);
