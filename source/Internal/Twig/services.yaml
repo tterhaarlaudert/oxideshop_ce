@@ -174,3 +174,9 @@ services:
     arguments:
       - '@OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\TranslateSalutationLogic'
     tags: ['twig.extension']
+
+  OxidEsales\EshopCommunity\Internal\Twig\Extensions\Filters\DateFormatExtension:
+    class: OxidEsales\EshopCommunity\Internal\Twig\Extensions\Filters\DateFormatExtension
+    arguments:
+      - '@OxidEsales\EshopCommunity\Internal\Adapter\TemplateLogic\DateFormatHelper'
+    tags: ['twig.extension']
