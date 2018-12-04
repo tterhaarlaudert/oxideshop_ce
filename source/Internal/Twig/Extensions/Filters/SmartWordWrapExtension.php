@@ -43,10 +43,10 @@ class SmartWordWrapExtension extends AbstractExtension
 
     /**
      * @param string $string
-     * @param int $length
+     * @param int    $length
      * @param string $break
-     * @param int $cutRows
-     * @param int $tolerance
+     * @param int    $cutRows
+     * @param int    $tolerance
      * @param string $etc
      *
      * @return string
