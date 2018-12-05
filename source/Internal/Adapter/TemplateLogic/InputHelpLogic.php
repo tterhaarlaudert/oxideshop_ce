@@ -27,18 +27,18 @@ class InputHelpLogic
      */
     public function getTranslation($params)
     {
-        $sIdent = $this->getIdent($params);
-        $sTranslation = null;
-        $oLang = \OxidEsales\Eshop\Core\Registry::getLang();
-        $iLang = $oLang->getTplLanguage();
-        $myConfig = \OxidEsales\Eshop\Core\Registry::getConfig();
-        $blAdmin = $myConfig->isAdmin();
+        $ident = $this->getIdent($params);
+        $translation = null;
+        $lang = \OxidEsales\Eshop\Core\Registry::getLang();
+        $tplLanguage = $lang->getTplLanguage();
+        $config = \OxidEsales\Eshop\Core\Registry::getConfig();
+        $isAdmin = $config->isAdmin();
         try {
-            $sTranslation = $oLang->translateString($sIdent, $iLang, $blAdmin);
-        } catch (\OxidEsales\Eshop\Core\Exception\LanguageException $oEx) {
+            $translation = $lang->translateString($ident, $tplLanguage, $isAdmin);
+        } catch (\OxidEsales\Eshop\Core\Exception\LanguageException $languageException) {
             // is thrown in debug mode and has to be caught here, as smarty hangs otherwise!
         }
 
-        return $sTranslation;
+        return $translation;
     }
 }
