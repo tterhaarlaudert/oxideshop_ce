@@ -28,11 +28,13 @@ trait ContainerTrait
         return $container->get($serviceId);
     }
 
-    private function setContainerDefinitionToPublic(SymfonyContainerBuilder $container, string $definitionId)
+    private function setContainerDefinitionToPublic(SymfonyContainerBuilder $container, string $definitionId): SymfonyContainerBuilder
     {
         $definition = $container->getDefinition($definitionId);
         $definition->setPublic(true);
 
         $container->setDefinition($definitionId, $definition);
+
+        return $container;
     }
 }

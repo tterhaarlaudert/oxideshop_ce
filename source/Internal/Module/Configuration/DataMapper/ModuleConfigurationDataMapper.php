@@ -72,11 +72,6 @@ class ModuleConfigurationDataMapper implements ModuleConfigurationDataMapperInte
     {
         $settings = $this->getMappedSettings($settingsData);
 
-        $this->settingValidator->validate(
-            $settingsData['version'],
-            $settings
-        );
-
         foreach ($settings as $setting) {
             $moduleConfiguration->addSetting(
                 $setting
