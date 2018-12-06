@@ -62,7 +62,7 @@ class TwigEngine implements BaseEngineInterface
      *
      * @return string The evaluated template as a string
      */
-    public function render($name, array $parameters = array())
+    public function render($name, array $parameters = array()): string
     {
         return $this->engine->render($name, $parameters);
     }
@@ -74,7 +74,7 @@ class TwigEngine implements BaseEngineInterface
      *
      * @return bool true if the template exists, false otherwise
      */
-    public function exists($name)
+    public function exists($name): bool
     {
         return $this->engine->getLoader()->exists($name);
     }
@@ -86,7 +86,7 @@ class TwigEngine implements BaseEngineInterface
      *
      * @return bool true if this class supports the given template, false otherwise
      */
-    public function supports($name)
+    public function supports($name): bool
     {
         $template = $this->parser->parse($name);
 
@@ -95,17 +95,20 @@ class TwigEngine implements BaseEngineInterface
 
     /**
      * @param string $cacheId
+     *
+     * @return void
      */
-    public function setCacheId($cacheId)
+    public function setCacheId($cacheId): void
     {
     }
 
     /**
      * @param string $name
-     *
      * @param mixed  $value
+     *
+     * @return void
      */
-    public function addGlobal($name, $value)
+    public function addGlobal($name, $value): void
     {
         $this->globals[$name] = $value;
     }
@@ -113,7 +116,7 @@ class TwigEngine implements BaseEngineInterface
     /**
      * @return array
      */
-    public function getGlobals()
+    public function getGlobals(): array
     {
         return $this->globals;
     }
