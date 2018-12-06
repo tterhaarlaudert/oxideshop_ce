@@ -118,7 +118,7 @@ class SmartyContextTest extends \PHPUnit\Framework\TestCase
         $config = $this->getConfigMock();
         $config->method('getConfigParam')
             ->with('sCoreDir')
-            ->will($this->returnValue('CoreDir'));
+            ->will($this->returnValue('CoreDir/'));
 
         $utilsView = $this->getUtilsViewMock();
 
