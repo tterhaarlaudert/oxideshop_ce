@@ -95,8 +95,6 @@ class TwigEngine implements BaseEngineInterface
 
     /**
      * @param string $cacheId
-     *
-     * @return void
      */
     public function setCacheId($cacheId): void
     {
@@ -105,8 +103,6 @@ class TwigEngine implements BaseEngineInterface
     /**
      * @param string $name
      * @param mixed  $value
-     *
-     * @return void
      */
     public function addGlobal($name, $value): void
     {
