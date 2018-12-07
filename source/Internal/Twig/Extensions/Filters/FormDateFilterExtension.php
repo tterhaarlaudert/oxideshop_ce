@@ -33,19 +33,19 @@ class FormDateFilterExtension extends AbstractExtension
     public function getFilters()
     {
         return [
-            new TwigFilter('formdate', [$this, 'formdate'], ['is_safe' => ['html']]),
+            new TwigFilter('form_date', [$this, 'formDate'], ['is_safe' => ['html']]),
         ];
     }
 
     /**
-     * @param object $oConvObject
-     * @param null   $sFieldType
-     * @param bool   $blPassedValue
+     * @param object $convObject
+     * @param null   $fieldType
+     * @param bool   $passedValue
      *
      * @return string
      */
-    public function formdate($oConvObject, $sFieldType = null, $blPassedValue = false)
+    public function formDate($convObject, $fieldType = null, $passedValue = false)
     {
-        return $this->formDateLogic->formdate($oConvObject, $sFieldType, $blPassedValue);
+        return $this->formDateLogic->formdate($convObject, $fieldType, $passedValue);
     }
 }

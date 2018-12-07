@@ -25,44 +25,44 @@ class FormDateFilterExtensionTest extends AbstractExtensionTest
     }
 
     /**
-     * @covers FormDateFilterExtension::formdate
+     * @covers FormDateFilterExtension::form_date
      */
     public function testFormDateWithDatetime()
     {
-        $template = "{{ '01.08.2007 11.56.25'|formdate('datetime', true) }}";
+        $template = "{{ '01.08.2007 11.56.25'|form_date('datetime', true) }}";
         $expected = "2007-08-01 11:56:25";
 
         $this->assertEquals($expected, $this->getTemplate($template)->render([]));
     }
 
     /**
-     * @covers FormDateFilterExtension::formdate
+     * @covers FormDateFilterExtension::form_date
      */
     public function testFormDateWithTimestamp()
     {
-        $template = "{{ '20070801115625'|formdate('timestamp', true) }}";
+        $template = "{{ '20070801115625'|form_date('timestamp', true) }}";
         $expected = "2007-08-01 11:56:25";
 
         $this->assertEquals($expected, $this->getTemplate($template)->render([]));
     }
 
     /**
-     * @covers FormDateFilterExtension::formdate
+     * @covers FormDateFilterExtension::form_date
      */
     public function testFormDateWithDate()
     {
-        $template = "{{ '2007-08-01 11:56:25'|formdate('date', true) }}";
+        $template = "{{ '2007-08-01 11:56:25'|form_date('date', true) }}";
         $expected = "2007-08-01";
 
         $this->assertEquals($expected, $this->getTemplate($template)->render([]));
     }
 
     /**
-     * @covers FormDateFilterExtension::formdate
+     * @covers FormDateFilterExtension::form_date
      */
     public function testFormDateUsingObject()
     {
-        $template = "{{ field|formdate('datetime') }}";
+        $template = "{{ field|form_date('datetime') }}";
         $expected = "2007-08-01 11:56:25";
 
         $field = new Field();
